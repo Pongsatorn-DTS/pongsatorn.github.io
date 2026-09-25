@@ -1,283 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pongsatorn Chomkeaw | Digital Business Card</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pongsatorn Chomkeaw | Digital Identity</title>
+
+    <meta
+        name="description"
+        content="Pongsatorn Chomkeaw — Business Consultant, Digital Transformation Solution at RICOH (THAILAND) LIMITED."
+    >
 
     <style>
 
+        /* =========================================================
+           RESET
+        ========================================================= */
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
             min-height: 100vh;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px 15px;
+            background: #080808;
+            color: #f5f5f5;
 
             font-family:
+                Inter,
                 "Segoe UI",
+                Helvetica,
                 Arial,
                 sans-serif;
 
-            background: #f3f3f3;
-            color: #111;
+            overflow-x: hidden;
         }
 
 
-        /* =========================
-           CARD
-        ========================= */
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
 
-        .card {
+        :root {
+            --red: #d6001c;
+            --red-dark: #a90016;
 
-            width: 100%;
-            max-width: 920px;
-
-            display: grid;
-            grid-template-columns: 280px 1fr;
-
-            background: #fff;
-
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.10);
-
-            border: 1px solid #e8e8e8;
+            --white: #f5f5f5;
+            --muted: #888;
+            --dark: #080808;
+            --line: rgba(255,255,255,0.10);
         }
 
 
-        /* =========================
-           LEFT
-        ========================= */
+        /* =========================================================
+           BACKGROUND GRID
+        ========================================================= */
 
-        .left {
-
-            position: relative;
-
-            display: flex;
-            flex-direction: column;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 40px 25px;
-
-            background: #fafafa;
-
-            border-right: 1px solid #eeeeee;
-        }
-
-
-        /* Red accent */
-
-        .left::before {
-
+        body::before {
             content: "";
 
-            position: absolute;
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 80px 80px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black 0%,
+                    transparent 90%
+                );
+
+            z-index: -2;
+        }
+
+
+        /* =========================================================
+           RED GLOW
+        ========================================================= */
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 600px;
+            height: 600px;
+
+            top: -300px;
+            right: -200px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(214,0,28,0.16),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .nav {
+            position: fixed;
 
             top: 0;
             left: 0;
 
-            width: 5px;
-            height: 100%;
+            width: 100%;
 
-            background: #d6001c;
-        }
+            height: 80px;
 
-
-        .photo {
-
-            width: 190px;
-            height: 190px;
-
-            object-fit: cover;
-
-            border-radius: 14px;
-
-            border: 1px solid #e2e2e2;
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-
-        .availability {
-
-            margin-top: 22px;
+            padding:
+                0
+                clamp(25px, 5vw, 80px);
 
             display: flex;
-            align-items: center;
-            gap: 8px;
 
-            font-size: 13px;
-            color: #666;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid var(--line);
+
+            background:
+                rgba(8,8,8,0.75);
+
+            backdrop-filter: blur(15px);
+
+            z-index: 100;
         }
 
 
-        .dot {
+        .logo {
+            display: flex;
 
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+        }
+
+
+        .logo-dot {
             width: 8px;
             height: 8px;
 
+            background: var(--red);
+
             border-radius: 50%;
 
-            background: #22a447;
+            box-shadow:
+                0 0 15px rgba(214,0,28,0.7);
         }
 
 
-        /* =========================
-           RIGHT
-        ========================= */
+        .nav-right {
+            display: flex;
 
-        .right {
+            align-items: center;
 
-            padding: 48px 55px;
-        }
+            gap: 25px;
 
+            color: #777;
 
-        .small-title {
-
-            font-size: 12px;
-
-            font-weight: 700;
+            font-size: 10px;
 
             letter-spacing: 2px;
 
             text-transform: uppercase;
+        }
 
-            color: #d6001c;
 
-            margin-bottom: 12px;
+        .status {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+
+            background: #25c45a;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px rgba(37,196,90,0.7);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding:
+                150px
+                clamp(25px, 7vw, 110px)
+                80px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                0.9fr;
+
+            align-items: center;
+
+            gap: 80px;
+
+            max-width: 1500px;
+
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           LEFT SIDE
+        ========================================================= */
+
+        .hero-left {
+            animation:
+                reveal-left 1s ease forwards;
+
+            opacity: 0;
+        }
+
+
+        @keyframes reveal-left {
+
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+
+        .eyebrow {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+
+            color: var(--red);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .eyebrow-line {
+            width: 45px;
+            height: 1px;
+
+            background: var(--red);
         }
 
 
         .name {
+            font-size:
+                clamp(55px, 8vw, 125px);
 
-            font-size: 42px;
+            line-height: 0.86;
 
-            line-height: 1.15;
+            font-weight: 750;
 
-            font-weight: 700;
+            letter-spacing:
+                clamp(-6px, -0.5vw, -2px);
 
-            letter-spacing: -1px;
-
-            color: #111;
+            text-transform: uppercase;
         }
 
 
-        .position {
+        .name span {
+            color: transparent;
 
-            margin-top: 12px;
+            -webkit-text-stroke:
+                1px rgba(255,255,255,0.55);
+        }
+
+
+        .role {
+            margin-top: 45px;
 
             font-size: 18px;
 
-            color: #666;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-
-            margin-top: 28px;
-
-            display: flex;
-            flex-direction: column;
-
-            gap: 10px;
-        }
-
-
-        .contact a {
-
-            width: fit-content;
-
-            color: #333;
-
-            text-decoration: none;
-
-            font-size: 15px;
-
-            transition: 0.2s;
-        }
-
-
-        .contact a:hover {
-
-            color: #d6001c;
-
-            transform: translateX(3px);
-        }
-
-
-        /* =========================
-           COMPANY
-        ========================= */
-
-        .company {
-
-            margin-top: 30px;
-
-            padding-top: 25px;
-
-            border-top: 1px solid #e5e5e5;
-        }
-
-
-        .company-title {
-
-            font-size: 20px;
-
-            font-weight: 700;
-
-            letter-spacing: -0.3px;
-
-            color: #111;
-        }
-
-
-        .company-title span {
-
-            color: #d6001c;
-        }
-
-
-        .company-detail {
-
-            margin-top: 8px;
-
-            font-size: 14px;
-
             line-height: 1.7;
 
-            color: #777;
+            color: #888;
+
+            max-width: 520px;
         }
 
 
-        /* =========================
-           BUTTONS
-        ========================= */
+        .role strong {
+            color: #eee;
 
-        .buttons {
+            font-weight: 500;
+        }
 
-            margin-top: 30px;
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .actions {
+            margin-top: 40px;
 
             display: flex;
 
@@ -287,310 +371,966 @@
         }
 
 
-        .btn {
-
+        .button {
             display: inline-flex;
 
             align-items: center;
             justify-content: center;
 
-            min-width: 105px;
+            gap: 10px;
 
-            padding: 11px 18px;
+            min-width: 125px;
 
-            border-radius: 8px;
+            padding: 14px 20px;
 
-            background: #111;
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 4px;
+
+            background: transparent;
 
             color: #fff;
 
             text-decoration: none;
 
-            font-size: 14px;
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .button:hover {
+            background: #fff;
+
+            color: #080808;
+
+            border-color: #fff;
+
+            transform: translateY(-3px);
+        }
+
+
+        .button.primary {
+            background: var(--red);
+
+            border-color: var(--red);
+        }
+
+
+        .button.primary:hover {
+            background: var(--red-dark);
+
+            border-color: var(--red-dark);
+
+            color: #fff;
+        }
+
+
+        /* =========================================================
+           RIGHT SIDE
+        ========================================================= */
+
+        .hero-right {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            animation:
+                reveal-right 1s ease 0.15s forwards;
+
+            opacity: 0;
+        }
+
+
+        @keyframes reveal-right {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        /* =========================================================
+           PHOTO FRAME
+        ========================================================= */
+
+        .photo-frame {
+            position: relative;
+
+            width:
+                min(430px, 75vw);
+
+            aspect-ratio: 0.78;
+
+            background: #111;
+
+            border: 1px solid var(--line);
+
+            overflow: hidden;
+        }
+
+
+        .photo-frame::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border: 1px solid
+                rgba(255,255,255,0.10);
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        .photo-frame::after {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            bottom: -80px;
+            right: -80px;
+
+            border-radius: 50%;
+
+            background:
+                var(--red);
+
+            filter: blur(70px);
+
+            opacity: 0.45;
+        }
+
+
+        .photo {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            filter:
+                grayscale(15%)
+                contrast(1.05);
+
+            transition:
+                transform 0.8s ease,
+                filter 0.8s ease;
+        }
+
+
+        .photo-frame:hover .photo {
+            transform: scale(1.04);
+
+            filter:
+                grayscale(0%)
+                contrast(1.05);
+        }
+
+
+        /* =========================================================
+           PHOTO LABEL
+        ========================================================= */
+
+        .photo-label {
+            position: absolute;
+
+            left: 25px;
+            bottom: 25px;
+
+            z-index: 3;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .photo-label small {
+            color: #aaa;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .photo-label strong {
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================================
+           INDEX
+        ========================================================= */
+
+        .index {
+            position: absolute;
+
+            right: 25px;
+            top: 25px;
+
+            color: #777;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            z-index: 3;
+        }
+
+
+        /* =========================================================
+           INFORMATION SECTION
+        ========================================================= */
+
+        .info {
+            border-top: 1px solid var(--line);
+
+            padding:
+                100px
+                clamp(25px, 7vw, 110px);
+
+            max-width: 1500px;
+
+            margin: auto;
+        }
+
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.7fr
+                1.3fr;
+
+            gap: 80px;
+        }
+
+
+        .section-number {
+            color: var(--red);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+        }
+
+
+        .section-title {
+            margin-top: 15px;
+
+            font-size: 32px;
 
             font-weight: 600;
 
-            transition: all 0.2s ease;
+            letter-spacing: -1px;
         }
 
 
-        .btn:hover {
+        .about-text {
+            max-width: 650px;
 
-            background: #d6001c;
+            color: #777;
 
-            transform: translateY(-2px);
+            font-size: 17px;
 
-            box-shadow:
-                0 6px 15px rgba(214, 0, 28, 0.18);
+            line-height: 1.9;
         }
 
 
-        .btn.primary {
+        .about-text strong {
+            color: #eee;
 
-            background: #d6001c;
+            font-weight: 500;
         }
 
 
-        .btn.primary:hover {
+        /* =========================================================
+           CONTACT SECTION
+        ========================================================= */
 
-            background: #b50018;
+        .contact {
+            border-top: 1px solid var(--line);
+
+            margin-top: 100px;
+
+            padding:
+                80px
+                clamp(25px, 7vw, 110px);
+
+            max-width: 1500px;
+
+            margin-left: auto;
+            margin-right: auto;
         }
 
 
-        /* =========================
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.7fr
+                1.3fr;
+
+            gap: 80px;
+        }
+
+
+        .contact-items {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 20px;
+        }
+
+
+        .contact-item {
+            padding: 25px;
+
+            border: 1px solid var(--line);
+
+            text-decoration: none;
+
+            color: white;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .contact-item:hover {
+            border-color: var(--red);
+
+            transform: translateY(-4px);
+        }
+
+
+        .contact-label {
+            color: #666;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+
+        .contact-value {
+            font-size: 14px;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================================================
            FOOTER
-        ========================= */
+        ========================================================= */
 
-        .footer {
+        footer {
+            max-width: 1500px;
 
-            margin-top: 28px;
+            margin: auto;
 
-            font-size: 11px;
+            padding:
+                30px
+                clamp(25px, 7vw, 110px);
 
-            color: #aaa;
+            border-top: 1px solid var(--line);
 
-            letter-spacing: 0.5px;
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
         }
 
 
-        /* =========================
+        .footer-red {
+            color: var(--red);
+        }
+
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
-        @media (max-width: 750px) {
+        @media (max-width: 900px) {
 
-            body {
-
-                padding: 15px;
-            }
-
-
-            .card {
-
+            .hero {
                 grid-template-columns: 1fr;
+
+                gap: 60px;
+
+                padding-top: 130px;
             }
 
 
-            .left {
-
-                padding: 35px 20px;
-
-                border-right: none;
-
-                border-bottom: 1px solid #eee;
+            .hero-right {
+                justify-content: flex-start;
             }
 
 
-            .left::before {
-
-                width: 100%;
-                height: 4px;
-
-                top: 0;
-                left: 0;
+            .photo-frame {
+                width: min(360px, 80vw);
             }
 
 
-            .photo {
+            .info-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
 
-                width: 170px;
-                height: 170px;
+                gap: 40px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .nav {
+                height: 65px;
             }
 
 
-            .right {
+            .nav-right {
+                gap: 0;
+            }
 
-                padding: 35px 28px;
+
+            .nav-right .location {
+                display: none;
+            }
+
+
+            .hero {
+                padding:
+                    110px
+                    25px
+                    70px;
             }
 
 
             .name {
+                font-size: 58px;
 
-                font-size: 32px;
+                letter-spacing: -3px;
             }
 
 
-            .position {
+            .role {
+                margin-top: 30px;
 
                 font-size: 16px;
             }
 
 
-            .buttons {
-
+            .actions {
                 display: grid;
 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr
+                    1fr;
             }
 
 
-            .btn {
+            .button {
+                min-width: 0;
 
                 width: 100%;
             }
+
+
+            .photo-frame {
+                width: 100%;
+
+                max-width: 360px;
+            }
+
+
+            .info {
+                padding:
+                    70px 25px;
+            }
+
+
+            .contact {
+                margin-top: 70px;
+
+                padding:
+                    70px 25px;
+            }
+
+
+            .contact-items {
+                grid-template-columns: 1fr;
+            }
+
+
+            footer {
+                padding:
+                    25px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 10px;
+            }
+
         }
 
 
-        @media (max-width: 420px) {
+        @media (max-width: 380px) {
 
             .name {
-
-                font-size: 28px;
+                font-size: 48px;
             }
 
 
-            .buttons {
-
+            .actions {
                 grid-template-columns: 1fr;
             }
+
         }
 
     </style>
-
 </head>
 
 
 <body>
 
 
-    <div class="card">
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
+    <nav class="nav">
 
-        <!-- =====================
-             PROFILE
-        ====================== -->
+        <div class="logo">
 
-        <div class="left">
+            <span class="logo-dot"></span>
 
-            <img
-                class="photo"
-                src="dawson.jpg"
-                alt="Pongsatorn Chomkeaw"
-            >
-
-            <div class="availability">
-
-                <span class="dot"></span>
-
-                Available for business
-
-            </div>
+            RICOH
 
         </div>
 
 
-        <!-- =====================
-             INFORMATION
-        ====================== -->
+        <div class="nav-right">
 
-        <div class="right">
+            <div class="status">
 
-            <div class="small-title">
-                Digital Business Card
-            </div>
+                <span class="status-dot"></span>
 
-
-            <div class="name">
-                Pongsatorn Chomkeaw
-            </div>
-
-
-            <div class="position">
-                Business Consultant<br>
-                Digital Transformation Solution
-            </div>
-
-
-            <!-- CONTACT -->
-
-            <div class="contact">
-
-                <a href="mailto:pongsatorn.cho@ricoh.co.th">
-                    ✉ &nbsp; pongsatorn.cho@ricoh.co.th
-                </a>
-
-
-                <a href="tel:+66822822568">
-                    ☎ &nbsp; +66 82 282 2568
-                </a>
+                Available
 
             </div>
 
 
-            <!-- COMPANY -->
-
-            <div class="company">
-
-                <div class="company-title">
-
-                    <span>RICOH (THAILAND) LIMITED</span>
-
-                </div>
-
-
-                <div class="company-detail">
-
-                    341 Onnuj Road, Prawet, Bangkok 10250
-                    <br>
-
-                    Office: +66 2 088 8888 ext. 1845
-
-                </div>
-
-            </div>
-
-
-            <!-- BUTTONS -->
-
-            <div class="buttons">
-
-                <a
-                    class="btn primary"
-                    href="tel:+66822822568"
-                >
-                    Call
-                </a>
-
-
-                <a
-                    class="btn"
-                    href="mailto:pongsatorn.cho@ricoh.co.th"
-                >
-                    Email
-                </a>
-
-
-                <a
-                    class="btn"
-                    href="https://www.ricoh.co.th/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    RICOH
-                </a>
-
-
-                <a
-                    class="btn"
-                    href="https://www.linkedin.com/in/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn
-                </a>
-
-            </div>
-
-
-            <div class="footer">
-                © 2026 Pongsatorn Chomkeaw
+            <div class="location">
+                Bangkok / Thailand
             </div>
 
         </div>
 
-    </div>
+    </nav>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+
+            <!-- LEFT -->
+
+            <div class="hero-left">
+
+                <div class="eyebrow">
+
+                    <span class="eyebrow-line"></span>
+
+                    Digital Identity / 2026
+
+                </div>
+
+
+                <h1 class="name">
+
+                    Pongsatorn<br>
+
+                    <span>Chomkeaw</span>
+
+                </h1>
+
+
+                <p class="role">
+
+                    <strong>Business Consultant</strong><br>
+
+                    Digital Transformation Solution<br>
+
+                    RICOH (THAILAND) LIMITED
+
+                </p>
+
+
+                <div class="actions">
+
+                    <a
+                        class="button primary"
+                        href="tel:+66822822568"
+                    >
+                        Call ↗
+                    </a>
+
+
+                    <a
+                        class="button"
+                        href="mailto:pongsatorn.cho@ricoh.co.th"
+                    >
+                        Email ↗
+                    </a>
+
+
+                    <a
+                        class="button"
+                        href="https://www.linkedin.com/in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn ↗
+                    </a>
+
+
+                    <button
+                        class="button"
+                        onclick="saveContact()"
+                    >
+                        Save Contact ↓
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT -->
+
+            <div class="hero-right">
+
+                <div class="photo-frame">
+
+                    <span class="index">
+                        01 / 01
+                    </span>
+
+
+                    <img
+                        class="photo"
+                        src="/images/profile.jpg"
+                        alt="Pongsatorn Chomkeaw"
+                    >
+
+
+                    <div class="photo-label">
+
+                        <small>
+                            Profile
+                        </small>
+
+                        <strong>
+                            PONGSATORN CHOMKEAW
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section class="info">
+
+            <div class="info-grid">
+
+                <div>
+
+                    <div class="section-number">
+                        02 / ABOUT
+                    </div>
+
+                    <h2 class="section-title">
+                        Digital<br>
+                        Transformation
+                    </h2>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    I work with businesses to explore
+                    <strong>digital transformation</strong>,
+                    technology solutions, and opportunities
+                    to improve the way organizations work.
+
+                    <br><br>
+
+                    My focus is connecting
+                    <strong>business needs</strong>
+                    with practical digital solutions —
+                    from process improvement to technology
+                    implementation.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section class="contact">
+
+            <div class="contact-grid">
+
+
+                <div>
+
+                    <div class="section-number">
+                        03 / CONTACT
+                    </div>
+
+                    <h2 class="section-title">
+                        Let's connect.
+                    </h2>
+
+                </div>
+
+
+                <div class="contact-items">
+
+
+                    <a
+                        class="contact-item"
+                        href="mailto:pongsatorn.cho@ricoh.co.th"
+                    >
+
+                        <div class="contact-label">
+                            Email
+                        </div>
+
+                        <div class="contact-value">
+                            pongsatorn.cho@ricoh.co.th
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        class="contact-item"
+                        href="tel:+66822822568"
+                    >
+
+                        <div class="contact-label">
+                            Phone
+                        </div>
+
+                        <div class="contact-value">
+                            +66 82 282 2568
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        class="contact-item"
+                        href="https://www.linkedin.com/in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="contact-label">
+                            LinkedIn
+                        </div>
+
+                        <div class="contact-value">
+                            Connect on LinkedIn ↗
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        class="contact-item"
+                        href="https://www.ricoh.co.th/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="contact-label">
+                            Company
+                        </div>
+
+                        <div class="contact-value">
+                            RICOH (THAILAND) LIMITED ↗
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div>
+            © 2026 Pongsatorn Chomkeaw
+        </div>
+
+        <div class="footer-red">
+            RICOH / THAILAND
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         SAVE CONTACT
+    ========================================================== -->
+
+    <script>
+
+        function saveContact() {
+
+            const vcard = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                "FN:Pongsatorn Chomkeaw",
+                "N:Chomkeaw;Pongsatorn;;;",
+                "ORG:RICOH (THAILAND) LIMITED",
+                "TITLE:Business Consultant",
+                "ROLE:Digital Transformation Solution",
+                "TEL;TYPE=CELL:+66822822568",
+                "EMAIL;TYPE=WORK:pongsatorn.cho@ricoh.co.th",
+                "ADR;TYPE=WORK:;;341 Onnuj Road;Prawet;Bangkok;10250;Thailand",
+                "URL:https://www.ricoh.co.th/",
+                "END:VCARD"
+            ].join("\r\n");
+
+
+            const blob = new Blob(
+                [vcard],
+                {
+                    type: "text/vcard;charset=utf-8"
+                }
+            );
+
+
+            const url =
+                URL.createObjectURL(blob);
+
+
+            const link =
+                document.createElement("a");
+
+
+            link.href = url;
+
+            link.download =
+                "Pongsatorn-Chomkeaw.vcf";
+
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+            URL.revokeObjectURL(url);
+
+        }
+
+    </script>
 
 
 </body>
-
 </html>
