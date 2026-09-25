@@ -1,180 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pongsatorn Chomkeaw</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body{
-    margin:0;
-    background:#f5f5f5;
-    font-family:'Segoe UI',sans-serif;
-}
+    <title>Pongsatorn Chomkeaw | Digital Business Card</title>
 
-.card{
-    max-width:1000px;
-    margin:40px auto;
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
-    display:flex;
-    flex-wrap:wrap;
-}
+    <style>
 
-.left{
-    width:320px;
-    background:#fafafa;
-    text-align:center;
-    padding:30px;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-.left img{
-    width:220px;
-    height:220px;
-    object-fit:cover;
-    border-radius:12px;
-}
+        body {
+            margin: 0;
+            min-height: 100vh;
 
-.right{
-    flex:1;
-    padding:40px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.name{
-    font-size:42px;
-    font-weight:bold;
-    color:#111;
-}
+            padding: 30px 15px;
 
-.position{
-    margin-top:10px;
-    font-size:20px;
-    color:#555;
-}
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
 
-.contact{
-    margin-top:20px;
-    line-height:2;
-    font-size:18px;
-}
+            background: #f3f3f3;
+            color: #111;
+        }
 
-.company{
-    margin-top:25px;
-    padding-top:15px;
-    border-top:2px solid #d6001c;
-}
 
-.company-title{
-    color:#d6001c;
-    font-size:28px;
-    font-weight:bold;
-}
+        /* =========================
+           CARD
+        ========================= */
 
-.company-detail{
-    margin-top:12px;
-    font-size:18px;
-    line-height:1.8;
-}
+        .card {
 
-.buttons{
-    margin-top:30px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
+            width: 100%;
+            max-width: 920px;
 
-.btn{
-    background:#d6001c;
-    color:white;
-    text-decoration:none;
-    padding:12px 18px;
-    border-radius:8px;
-    font-weight:600;
-}
+            display: grid;
+            grid-template-columns: 280px 1fr;
 
-.btn:hover{
-    background:#b40018;
-}
+            background: #fff;
 
-@media(max-width:768px){
+            border-radius: 18px;
 
-    .card{
-        flex-direction:column;
-    }
+            overflow: hidden;
 
-    .left{
-        width:auto;
-    }
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.10);
 
-    .name{
-        font-size:32px;
-    }
+            border: 1px solid #e8e8e8;
+        }
 
-}
-</style>
+
+        /* =========================
+           LEFT
+        ========================= */
+
+        .left {
+
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 25px;
+
+            background: #fafafa;
+
+            border-right: 1px solid #eeeeee;
+        }
+
+
+        /* Red accent */
+
+        .left::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 5px;
+            height: 100%;
+
+            background: #d6001c;
+        }
+
+
+        .photo {
+
+            width: 190px;
+            height: 190px;
+
+            object-fit: cover;
+
+            border-radius: 14px;
+
+            border: 1px solid #e2e2e2;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .availability {
+
+            margin-top: 22px;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 13px;
+            color: #666;
+        }
+
+
+        .dot {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #22a447;
+        }
+
+
+        /* =========================
+           RIGHT
+        ========================= */
+
+        .right {
+
+            padding: 48px 55px;
+        }
+
+
+        .small-title {
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #d6001c;
+
+            margin-bottom: 12px;
+        }
+
+
+        .name {
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            font-weight: 700;
+
+            letter-spacing: -1px;
+
+            color: #111;
+        }
+
+
+        .position {
+
+            margin-top: 12px;
+
+            font-size: 18px;
+
+            color: #666;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+
+            margin-top: 28px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .contact a {
+
+            width: fit-content;
+
+            color: #333;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+        }
+
+
+        .contact a:hover {
+
+            color: #d6001c;
+
+            transform: translateX(3px);
+        }
+
+
+        /* =========================
+           COMPANY
+        ========================= */
+
+        .company {
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #e5e5e5;
+        }
+
+
+        .company-title {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.3px;
+
+            color: #111;
+        }
+
+
+        .company-title span {
+
+            color: #d6001c;
+        }
+
+
+        .company-detail {
+
+            margin-top: 8px;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #777;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 105px;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            background: #111;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: all 0.2s ease;
+        }
+
+
+        .btn:hover {
+
+            background: #d6001c;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 15px rgba(214, 0, 28, 0.18);
+        }
+
+
+        .btn.primary {
+
+            background: #d6001c;
+        }
+
+
+        .btn.primary:hover {
+
+            background: #b50018;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+
+            margin-top: 28px;
+
+            font-size: 11px;
+
+            color: #aaa;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            body {
+
+                padding: 15px;
+            }
+
+
+            .card {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .left {
+
+                padding: 35px 20px;
+
+                border-right: none;
+
+                border-bottom: 1px solid #eee;
+            }
+
+
+            .left::before {
+
+                width: 100%;
+                height: 4px;
+
+                top: 0;
+                left: 0;
+            }
+
+
+            .photo {
+
+                width: 170px;
+                height: 170px;
+            }
+
+
+            .right {
+
+                padding: 35px 28px;
+            }
+
+
+            .name {
+
+                font-size: 32px;
+            }
+
+
+            .position {
+
+                font-size: 16px;
+            }
+
+
+            .buttons {
+
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .btn {
+
+                width: 100%;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .name {
+
+                font-size: 28px;
+            }
+
+
+            .buttons {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="card">
 
-    <div class="left">
-        <img src="82007225_Pongsomkeaw_2.jpg
-    </div>
+    <div class="card">
 
-    <div class="right">
 
-        <div class="name">
-            Pongsatorn Chomkeaw (Dawson)
-        </div>
+        <!-- =====================
+             PROFILE
+        ====================== -->
 
-        <div class="position">
-            Business Consultant | Digital Transformation Solution
-        </div>
+        <div class="left">
 
-        <div class="contact">
-            📧 pongsatorn.cho@ricoh.co.th<br>
-            📱 +66 822822568
-        </div>
+            <img
+                class="photo"
+                src="82007225_Pongsomkeaw_2.jpg"
+                alt="Pongsatorn Chomkeaw"
+            >
 
-        <div class="company">
+            <div class="availability">
 
-            <div class="company-title">
-                RICOH (THAILAND) LIMITED
-            </div>
+                <span class="dot"></span>
 
-            <div class="company-detail">
-                341 Onnuj Road, Prawet, Bangkok 10250<br>
-                Office: +66 2 088 8888 ext.1845
+                Available for business
+
             </div>
 
         </div>
 
-        <div class="buttons">
 
-            tel:+66822822568
-                📞 Call
-            </a>
+        <!-- =====================
+             INFORMATION
+        ====================== -->
 
-            pongsatorn.cho@ricoh.co.th
-                ✉️ Email
-            </a>
+        <div class="right">
 
-            <a class="btn" href=.th
-                🌐 RICOH
-            </a>
+            <div class="small-title">
+                Digital Business Card
+            </div>
 
-            <a class="btninkedin.com/in/
-                💼 LinkedIn
-            </a>
+
+            <div class="name">
+                Pongsatorn Chomkeaw
+            </div>
+
+
+            <div class="position">
+                Business Consultant<br>
+                Digital Transformation Solution
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="contact">
+
+                <a href="mailto:pongsatorn.cho@ricoh.co.th">
+                    ✉ &nbsp; pongsatorn.cho@ricoh.co.th
+                </a>
+
+
+                <a href="tel:+66822822568">
+                    ☎ &nbsp; +66 82 282 2568
+                </a>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="company">
+
+                <div class="company-title">
+
+                    <span>RICOH</span>
+                    (THAILAND) LIMITED
+
+                </div>
+
+
+                <div class="company-detail">
+
+                    341 Onnuj Road, Prawet, Bangkok 10250
+                    <br>
+
+                    Office: +66 2 088 8888 ext. 1845
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a
+                    class="btn primary"
+                    href="tel:+66822822568"
+                >
+                    Call
+                </a>
+
+
+                <a
+                    class="btn"
+                    href="mailto:pongsatorn.cho@ricoh.co.th"
+                >
+                    Email
+                </a>
+
+
+                <a
+                    class="btn"
+                    href="https://www.ricoh.co.th/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    RICOH
+                </a>
+
+
+                <a
+                    class="btn"
+                    href="https://www.linkedin.com/in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+            </div>
+
+
+            <div class="footer">
+                © 2026 Pongsatorn Chomkeaw
+            </div>
 
         </div>
 
     </div>
 
-</div>
 
 </body>
+
 </html>
