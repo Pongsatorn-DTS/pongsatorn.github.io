@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Pongsatorn Chomkeaw | Digital Identity</title>
+    <title>Pongsatorn Chomkeaw | Digital Business Card</title>
 
     <meta
         name="description"
         content="Pongsatorn Chomkeaw — Business Consultant, Digital Transformation Solution at RICOH (THAILAND) LIMITED."
     >
+
 
     <style>
 
@@ -22,20 +23,20 @@
         ========================================================= */
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
+
 
         html {
             scroll-behavior: smooth;
         }
 
-        body {
-            min-height: 100vh;
 
-            background: #080808;
-            color: #f5f5f5;
+        body {
+
+            min-height: 100vh;
 
             font-family:
                 Inter,
@@ -44,1203 +45,1106 @@
                 Arial,
                 sans-serif;
 
-            overflow-x: hidden;
+            background: #f5f5f3;
+
+            color: #111;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px;
+
         }
 
 
-        /* =========================================================
-           VARIABLES
-        ========================================================= */
-
-        :root {
-            --red: #d6001c;
-            --red-dark: #a90016;
-
-            --white: #f5f5f5;
-            --muted: #888;
-            --dark: #080808;
-            --line: rgba(255,255,255,0.10);
-        }
-
 
         /* =========================================================
-           BACKGROUND GRID
+           MAIN CARD
         ========================================================= */
 
-        body::before {
-            content: "";
+        .card {
 
-            position: fixed;
-
-            inset: 0;
-
-            pointer-events: none;
-
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.035) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.035) 1px,
-                    transparent 1px
-                );
-
-            background-size: 80px 80px;
-
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black 0%,
-                    transparent 90%
-                );
-
-            z-index: -2;
-        }
-
-
-        /* =========================================================
-           RED GLOW
-        ========================================================= */
-
-        body::after {
-            content: "";
-
-            position: fixed;
-
-            width: 600px;
-            height: 600px;
-
-            top: -300px;
-            right: -200px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(214,0,28,0.16),
-                    transparent 70%
-                );
-
-            pointer-events: none;
-
-            z-index: -1;
-        }
-
-
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
-        .nav {
-            position: fixed;
-
-            top: 0;
-            left: 0;
+            position: relative;
 
             width: 100%;
 
-            height: 80px;
+            max-width: 1100px;
 
-            padding:
-                0
-                clamp(25px, 5vw, 80px);
-
-            display: flex;
-
-            justify-content: space-between;
-            align-items: center;
-
-            border-bottom: 1px solid var(--line);
-
-            background:
-                rgba(8,8,8,0.75);
-
-            backdrop-filter: blur(15px);
-
-            z-index: 100;
-        }
-
-
-        .logo {
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-        }
-
-
-        .logo-dot {
-            width: 8px;
-            height: 8px;
-
-            background: var(--red);
-
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 15px rgba(214,0,28,0.7);
-        }
-
-
-        .nav-right {
-            display: flex;
-
-            align-items: center;
-
-            gap: 25px;
-
-            color: #777;
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-
-        .status {
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-        }
-
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-
-            background: #25c45a;
-
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 10px rgba(37,196,90,0.7);
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 100vh;
-
-            padding:
-                150px
-                clamp(25px, 7vw, 110px)
-                80px;
+            min-height: 650px;
 
             display: grid;
 
-            grid-template-columns:
-                1.1fr
-                0.9fr;
+            grid-template-columns: 0.9fr 1.1fr;
 
-            align-items: center;
-
-            gap: 80px;
-
-            max-width: 1500px;
-
-            margin: auto;
-        }
-
-
-        /* =========================================================
-           LEFT SIDE
-        ========================================================= */
-
-        .hero-left {
-            animation:
-                reveal-left 1s ease forwards;
-
-            opacity: 0;
-        }
-
-
-        @keyframes reveal-left {
-
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-        }
-
-
-        .eyebrow {
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            margin-bottom: 30px;
-
-            color: var(--red);
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-        }
-
-
-        .eyebrow-line {
-            width: 45px;
-            height: 1px;
-
-            background: var(--red);
-        }
-
-
-        .name {
-            font-size:
-                clamp(55px, 8vw, 125px);
-
-            line-height: 0.86;
-
-            font-weight: 750;
-
-            letter-spacing:
-                clamp(-6px, -0.5vw, -2px);
-
-            text-transform: uppercase;
-        }
-
-
-        .name span {
-            color: transparent;
-
-            -webkit-text-stroke:
-                1px rgba(255,255,255,0.55);
-        }
-
-
-        .role {
-            margin-top: 45px;
-
-            font-size: 18px;
-
-            line-height: 1.7;
-
-            color: #888;
-
-            max-width: 520px;
-        }
-
-
-        .role strong {
-            color: #eee;
-
-            font-weight: 500;
-        }
-
-
-        /* =========================================================
-           CTA
-        ========================================================= */
-
-        .actions {
-            margin-top: 40px;
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-        }
-
-
-        .button {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 10px;
-
-            min-width: 125px;
-
-            padding: 14px 20px;
-
-            border: 1px solid rgba(255,255,255,0.15);
-
-            border-radius: 4px;
-
-            background: transparent;
-
-            color: #fff;
-
-            text-decoration: none;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-
-            transition:
-                0.25s ease;
-        }
-
-
-        .button:hover {
             background: #fff;
 
-            color: #080808;
+            border: 1px solid #dededb;
 
-            border-color: #fff;
-
-            transform: translateY(-3px);
-        }
-
-
-        .button.primary {
-            background: var(--red);
-
-            border-color: var(--red);
-        }
-
-
-        .button.primary:hover {
-            background: var(--red-dark);
-
-            border-color: var(--red-dark);
-
-            color: #fff;
-        }
-
-
-        /* =========================================================
-           RIGHT SIDE
-        ========================================================= */
-
-        .hero-right {
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            animation:
-                reveal-right 1s ease 0.15s forwards;
-
-            opacity: 0;
-        }
-
-
-        @keyframes reveal-right {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(30px)
-                    scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-
-        }
-
-
-        /* =========================================================
-           PHOTO FRAME
-        ========================================================= */
-
-        .photo-frame {
-            position: relative;
-
-            width:
-                min(430px, 75vw);
-
-            aspect-ratio: 0.78;
-
-            background: #111;
-
-            border: 1px solid var(--line);
+            border-radius: 20px;
 
             overflow: hidden;
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.08);
+
         }
 
-
-        .photo-frame::before {
-            content: "";
-
-            position: absolute;
-
-            inset: 12px;
-
-            border: 1px solid
-                rgba(255,255,255,0.10);
-
-            z-index: 2;
-
-            pointer-events: none;
-        }
-
-
-        .photo-frame::after {
-            content: "";
-
-            position: absolute;
-
-            width: 160px;
-            height: 160px;
-
-            bottom: -80px;
-            right: -80px;
-
-            border-radius: 50%;
-
-            background:
-                var(--red);
-
-            filter: blur(70px);
-
-            opacity: 0.45;
-        }
-
-
-        .photo {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            filter:
-                grayscale(15%)
-                contrast(1.05);
-
-            transition:
-                transform 0.8s ease,
-                filter 0.8s ease;
-        }
-
-
-        .photo-frame:hover .photo {
-            transform: scale(1.04);
-
-            filter:
-                grayscale(0%)
-                contrast(1.05);
-        }
 
 
         /* =========================================================
-           PHOTO LABEL
+           LEFT / PROFILE
         ========================================================= */
 
-        .photo-label {
-            position: absolute;
+        .profile {
 
-            left: 25px;
-            bottom: 25px;
+            position: relative;
 
-            z-index: 3;
+            padding: 45px;
 
             display: flex;
 
             flex-direction: column;
 
-            gap: 5px;
+            justify-content: space-between;
+
+            background: #f8f8f6;
+
+            border-right: 1px solid #e5e5e2;
+
         }
 
 
-        .photo-label small {
-            color: #aaa;
 
-            font-size: 9px;
+        /* Brand */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
 
             letter-spacing: 2px;
 
             text-transform: uppercase;
+
         }
 
 
-        .photo-label strong {
-            font-size: 13px;
+        .brand-mark {
 
-            letter-spacing: 1px;
+            width: 9px;
+
+            height: 9px;
+
+            background: #d6001c;
+
+            border-radius: 50%;
+
         }
 
 
-        /* =========================================================
-           INDEX
-        ========================================================= */
 
-        .index {
-            position: absolute;
+        /* Photo */
 
-            right: 25px;
-            top: 25px;
+        .photo-wrapper {
+
+            margin: auto 0;
+
+            display: flex;
+
+            justify-content: center;
+
+        }
+
+
+        .photo {
+
+            width: 270px;
+
+            height: 270px;
+
+            object-fit: cover;
+
+            border-radius: 16px;
+
+            border: 1px solid #ddd;
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.10);
+
+            filter: grayscale(8%);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+
+        }
+
+
+        .photo:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 28px 55px rgba(0, 0, 0, 0.14);
+
+        }
+
+
+
+        /* Availability */
+
+        .availability {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 12px;
+
+            font-weight: 500;
 
             color: #777;
 
-            font-size: 9px;
+            letter-spacing: 0.3px;
 
-            letter-spacing: 2px;
-
-            z-index: 3;
         }
+
+
+        .status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            background: #22a447;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 0 4px rgba(34, 164, 71, 0.10);
+
+        }
+
 
 
         /* =========================================================
-           INFORMATION SECTION
+           RIGHT / INFORMATION
         ========================================================= */
 
-        .info {
-            border-top: 1px solid var(--line);
+        .content {
 
-            padding:
-                100px
-                clamp(25px, 7vw, 110px);
+            padding: 55px;
 
-            max-width: 1500px;
+            display: flex;
 
-            margin: auto;
+            flex-direction: column;
+
         }
 
 
-        .info-grid {
-            display: grid;
 
-            grid-template-columns:
-                0.7fr
-                1.3fr;
+        /* Small heading */
 
-            gap: 80px;
+        .eyebrow {
+
+            color: #d6001c;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
         }
 
 
-        .section-number {
-            color: var(--red);
+
+        /* Name */
+
+        .name {
+
+            font-size: clamp(42px, 5vw, 68px);
+
+            line-height: 0.98;
+
+            font-weight: 750;
+
+            letter-spacing: -3px;
+
+            max-width: 600px;
+
+        }
+
+
+
+        /* Position */
+
+        .position {
+
+            margin-top: 25px;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color: #666;
+
+            max-width: 480px;
+
+        }
+
+
+        .position strong {
+
+            color: #222;
+
+            font-weight: 600;
+
+        }
+
+
+
+        /* =========================================================
+           DIVIDER
+        ========================================================= */
+
+        .divider {
+
+            width: 100%;
+
+            height: 1px;
+
+            background: #e5e5e2;
+
+            margin: 35px 0;
+
+        }
+
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .section-label {
 
             font-size: 10px;
 
             font-weight: 700;
 
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #999;
+
+            margin-bottom: 14px;
+
         }
 
 
-        .section-title {
-            margin-top: 15px;
+        .contact-list {
 
-            font-size: 32px;
+            display: flex;
 
-            font-weight: 600;
+            flex-direction: column;
 
-            letter-spacing: -1px;
+            gap: 9px;
+
         }
 
 
-        .about-text {
-            max-width: 650px;
+        .contact-link {
 
-            color: #777;
+            width: fit-content;
 
-            font-size: 17px;
-
-            line-height: 1.9;
-        }
-
-
-        .about-text strong {
-            color: #eee;
-
-            font-weight: 500;
-        }
-
-
-        /* =========================================================
-           CONTACT SECTION
-        ========================================================= */
-
-        .contact {
-            border-top: 1px solid var(--line);
-
-            margin-top: 100px;
-
-            padding:
-                80px
-                clamp(25px, 7vw, 110px);
-
-            max-width: 1500px;
-
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
-        .contact-grid {
-            display: grid;
-
-            grid-template-columns:
-                0.7fr
-                1.3fr;
-
-            gap: 80px;
-        }
-
-
-        .contact-items {
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1fr;
-
-            gap: 20px;
-        }
-
-
-        .contact-item {
-            padding: 25px;
-
-            border: 1px solid var(--line);
+            color: #222;
 
             text-decoration: none;
 
-            color: white;
+            font-size: 15px;
 
             transition:
-                0.25s ease;
+                color 0.2s ease,
+                transform 0.2s ease;
+
         }
 
 
-        .contact-item:hover {
-            border-color: var(--red);
+        .contact-link:hover {
 
-            transform: translateY(-4px);
+            color: #d6001c;
+
+            transform: translateX(4px);
+
         }
 
 
-        .contact-label {
-            color: #666;
 
-            font-size: 9px;
+        /* =========================================================
+           QUICK ACCESS
+        ========================================================= */
+
+        .quick-access {
+
+            margin-top: 28px;
+
+        }
+
+
+        .quick-title {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .quick-title span:first-child {
+
+            font-size: 10px;
+
+            font-weight: 700;
 
             letter-spacing: 2px;
 
             text-transform: uppercase;
 
-            margin-bottom: 10px;
+            color: #999;
+
         }
 
 
-        .contact-value {
-            font-size: 14px;
+        .quick-title span:last-child {
 
-            word-break: break-word;
+            font-size: 10px;
+
+            color: #bbb;
+
+            letter-spacing: 1px;
+
         }
+
+
+        .quick-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 8px;
+
+        }
+
+
+        .quick-button {
+
+            min-height: 62px;
+
+            padding: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            text-decoration: none;
+
+            color: #111;
+
+            background: #fafaf9;
+
+            border: 1px solid #dededb;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            text-align: left;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
+        }
+
+
+        .quick-button:hover {
+
+            background: #111;
+
+            color: #fff;
+
+            border-color: #111;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.10);
+
+        }
+
+
+        .quick-button.solution:hover {
+
+            background: #d6001c;
+
+            border-color: #d6001c;
+
+            box-shadow:
+                0 8px 20px rgba(214, 0, 28, 0.18);
+
+        }
+
+
+        .quick-icon {
+
+            font-size: 16px;
+
+            line-height: 1;
+
+        }
+
+
+        .quick-name {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.2px;
+
+        }
+
+
+        .quick-arrow {
+
+            position: absolute;
+
+            right: 10px;
+
+            top: 10px;
+
+            font-size: 11px;
+
+            opacity: 0.45;
+
+        }
+
+
+        .quick-button {
+
+            position: relative;
+
+        }
+
 
 
         /* =========================================================
-           FOOTER
+           COMPANY
         ========================================================= */
 
-        footer {
-            max-width: 1500px;
+        .company {
 
-            margin: auto;
+            margin-top: auto;
 
-            padding:
-                30px
-                clamp(25px, 7vw, 110px);
-
-            border-top: 1px solid var(--line);
+            padding-top: 28px;
 
             display: flex;
 
             justify-content: space-between;
 
-            align-items: center;
+            align-items: flex-end;
 
-            color: #555;
+            gap: 30px;
 
-            font-size: 9px;
+        }
+
+
+        .company-name {
+
+            font-size: 13px;
+
+            font-weight: 750;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        .company-name span {
+
+            color: #d6001c;
+
+        }
+
+
+        .company-address {
+
+            margin-top: 6px;
+
+            color: #999;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .year {
+
+            color: #aaa;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        /* =========================================================
+           DECORATIVE NUMBER
+        ========================================================= */
+
+        .number {
+
+            position: absolute;
+
+            right: 35px;
+
+            top: 30px;
+
+            font-size: 10px;
 
             letter-spacing: 2px;
 
-            text-transform: uppercase;
+            color: #bbb;
+
         }
 
-
-        .footer-red {
-            color: var(--red);
-        }
 
 
         /* =========================================================
            MOBILE
         ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 800px) {
 
-            .hero {
+            body {
+
+                padding: 15px;
+
+            }
+
+
+            .card {
+
                 grid-template-columns: 1fr;
 
-                gap: 60px;
+                max-width: 600px;
 
-                padding-top: 130px;
             }
 
 
-            .hero-right {
-                justify-content: flex-start;
+            .profile {
+
+                min-height: 440px;
+
+                padding: 30px;
+
+                border-right: none;
+
+                border-bottom: 1px solid #e5e5e2;
+
             }
 
 
-            .photo-frame {
-                width: min(360px, 80vw);
+            .photo-wrapper {
+
+                margin: 35px 0;
+
             }
 
 
-            .info-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .photo {
 
-                gap: 40px;
+                width: 210px;
+
+                height: 210px;
+
+            }
+
+
+            .content {
+
+                padding: 35px 30px;
+
+            }
+
+
+            .name {
+
+                font-size: 46px;
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .company {
+
+                margin-top: 45px;
+
             }
 
         }
 
 
-        @media (max-width: 600px) {
 
-            .nav {
-                height: 65px;
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 480px) {
+
+            body {
+
+                padding: 10px;
+
             }
 
 
-            .nav-right {
-                gap: 0;
+            .card {
+
+                border-radius: 14px;
+
             }
 
 
-            .nav-right .location {
-                display: none;
+            .profile {
+
+                padding: 25px;
+
+                min-height: 390px;
+
             }
 
 
-            .hero {
-                padding:
-                    110px
-                    25px
-                    70px;
+            .content {
+
+                padding: 30px 25px;
+
+            }
+
+
+            .photo {
+
+                width: 180px;
+
+                height: 180px;
+
             }
 
 
             .name {
-                font-size: 58px;
 
-                letter-spacing: -3px;
+                font-size: 38px;
+
+                letter-spacing: -1.8px;
+
             }
 
 
-            .role {
-                margin-top: 30px;
+            .position {
 
                 font-size: 16px;
+
             }
 
 
-            .actions {
-                display: grid;
+            .divider {
 
-                grid-template-columns:
-                    1fr
-                    1fr;
+                margin: 30px 0;
+
             }
 
 
-            .button {
-                min-width: 0;
+            .quick-grid {
 
-                width: 100%;
+                grid-template-columns: repeat(2, 1fr);
+
             }
 
 
-            .photo-frame {
-                width: 100%;
+            .quick-button {
 
-                max-width: 360px;
+                min-height: 65px;
+
             }
 
 
-            .info {
-                padding:
-                    70px 25px;
-            }
-
-
-            .contact {
-                margin-top: 70px;
-
-                padding:
-                    70px 25px;
-            }
-
-
-            .contact-items {
-                grid-template-columns: 1fr;
-            }
-
-
-            footer {
-                padding:
-                    25px;
+            .company {
 
                 flex-direction: column;
 
                 align-items: flex-start;
 
-                gap: 10px;
+                gap: 12px;
+
             }
 
         }
 
 
-        @media (max-width: 380px) {
 
-            .name {
-                font-size: 48px;
+        @media (max-width: 350px) {
+
+            .quick-grid {
+
+                grid-template-columns: 1fr;
+
             }
 
 
-            .actions {
-                grid-template-columns: 1fr;
+            .name {
+
+                font-size: 34px;
+
             }
 
         }
 
     </style>
+
 </head>
+
 
 
 <body>
 
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
-
-    <nav class="nav">
-
-        <div class="logo">
-
-            <span class="logo-dot"></span>
-
-            RICOH
-
-        </div>
+    <main class="card">
 
 
-        <div class="nav-right">
+        <!-- =====================================================
+             PROFILE
+        ====================================================== -->
 
-            <div class="status">
+        <section class="profile">
+
+
+            <div class="brand">
+
+                <span class="brand-mark"></span>
+
+                RICOH
+
+            </div>
+
+
+
+            <div class="photo-wrapper">
+
+                <img
+                    class="photo"
+                    src="dawson.jpg"
+                    alt="Pongsatorn Chomkeaw"
+                >
+
+            </div>
+
+
+
+            <div class="availability">
 
                 <span class="status-dot"></span>
 
-                Available
+                Available for business
 
             </div>
 
 
-            <div class="location">
-                Bangkok / Thailand
+        </section>
+
+
+
+        <!-- =====================================================
+             INFORMATION
+        ====================================================== -->
+
+        <section class="content">
+
+
+            <span class="number">
+
+                DIGITAL ID / 2026
+
+            </span>
+
+
+
+            <div class="eyebrow">
+
+                Digital Business Card
+
             </div>
 
-        </div>
-
-    </nav>
 
 
+            <h1 class="name">
 
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
+                Pongsatorn<br>
 
-    <main>
+                Chomkeaw
 
-        <section class="hero">
+            </h1>
 
 
-            <!-- LEFT -->
 
-            <div class="hero-left">
+            <p class="position">
 
-                <div class="eyebrow">
+                <strong>Business Consultant</strong><br>
 
-                    <span class="eyebrow-line"></span>
+                Digital Transformation Solution
 
-                    Digital Identity / 2026
+            </p>
+
+
+
+            <div class="divider"></div>
+
+
+
+            <!-- =================================================
+                 CONTACT
+            ================================================== -->
+
+            <div class="section-label">
+
+                Contact
+
+            </div>
+
+
+
+            <div class="contact-list">
+
+
+                <a
+                    class="contact-link"
+                    href="mailto:pongsatorn.cho@ricoh.co.th"
+                >
+
+                    pongsatorn.cho@ricoh.co.th
+
+                </a>
+
+
+
+                <a
+                    class="contact-link"
+                    href="tel:+66822822568"
+                >
+
+                    +66 82 282 2568
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 QUICK ACCESS
+            ================================================== -->
+
+            <div class="quick-access">
+
+
+                <div class="quick-title">
+
+                    <span>Quick Access</span>
+
+                    <span>CONNECT / EXPLORE</span>
 
                 </div>
 
 
-                <h1 class="name">
 
-                    Pongsatorn<br>
-
-                    <span>Chomkeaw</span>
-
-                </h1>
+                <div class="quick-grid">
 
 
-                <p class="role">
-
-                    <strong>Business Consultant</strong><br>
-
-                    Digital Transformation Solution<br>
-
-                    RICOH (THAILAND) LIMITED
-
-                </p>
-
-
-                <div class="actions">
-
-                    <a
-                        class="button primary"
-                        href="tel:+66822822568"
-                    >
-                        Call ↗
-                    </a>
-
-
-                    <a
-                        class="button"
-                        href="mailto:pongsatorn.cho@ricoh.co.th"
-                    >
-                        Email ↗
-                    </a>
-
-
-                    <a
-                        class="button"
-                        href="https://www.linkedin.com/in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        LinkedIn ↗
-                    </a>
-
+                    <!-- SAVE CONTACT -->
 
                     <button
-                        class="button"
+                        class="quick-button"
                         onclick="saveContact()"
                     >
-                        Save Contact ↓
+
+                        <span class="quick-icon">
+                            +
+                        </span>
+
+                        <span class="quick-name">
+                            Save Contact
+                        </span>
+
+                        <span class="quick-arrow">
+                            ↓
+                        </span>
+
                     </button>
 
-                </div>
-
-            </div>
 
 
-
-            <!-- RIGHT -->
-
-            <div class="hero-right">
-
-                <div class="photo-frame">
-
-                    <span class="index">
-                        01 / 01
-                    </span>
-
-
-                    <img
-                        class="photo"
-                        src="dawson.jpg"
-                        alt="Pongsatorn Chomkeaw"
-                    >
-
-
-                    <div class="photo-label">
-
-                        <small>
-                            Profile
-                        </small>
-
-                        <strong>
-                            PONGSATORN CHOMKEAW
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             ABOUT
-        ====================================================== -->
-
-        <section class="info">
-
-            <div class="info-grid">
-
-                <div>
-
-                    <div class="section-number">
-                        02 / ABOUT
-                    </div>
-
-                    <h2 class="section-title">
-                        Digital<br>
-                        Transformation
-                    </h2>
-
-                </div>
-
-
-                <div class="about-text">
-
-                    I work with businesses to explore
-                    <strong>digital transformation</strong>,
-                    technology solutions, and opportunities
-                    to improve the way organizations work.
-
-                    <br><br>
-
-                    My focus is connecting
-                    <strong>business needs</strong>
-                    with practical digital solutions —
-                    from process improvement to technology
-                    implementation.
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             CONTACT
-        ====================================================== -->
-
-        <section class="contact">
-
-            <div class="contact-grid">
-
-
-                <div>
-
-                    <div class="section-number">
-                        03 / CONTACT
-                    </div>
-
-                    <h2 class="section-title">
-                        Let's connect.
-                    </h2>
-
-                </div>
-
-
-                <div class="contact-items">
-
+                    <!-- SOLUTIONS -->
 
                     <a
-                        class="contact-item"
-                        href="mailto:pongsatorn.cho@ricoh.co.th"
-                    >
-
-                        <div class="contact-label">
-                            Email
-                        </div>
-
-                        <div class="contact-value">
-                            pongsatorn.cho@ricoh.co.th
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        class="contact-item"
-                        href="tel:+66822822568"
-                    >
-
-                        <div class="contact-label">
-                            Phone
-                        </div>
-
-                        <div class="contact-value">
-                            +66 82 282 2568
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        class="contact-item"
-                        href="https://www.linkedin.com/in/"
+                        class="quick-button solution"
+                        href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY/blob/main/solution.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
 
-                        <div class="contact-label">
-                            LinkedIn
-                        </div>
+                        <span class="quick-icon">
+                            ◇
+                        </span>
 
-                        <div class="contact-value">
-                            Connect on LinkedIn ↗
-                        </div>
+                        <span class="quick-name">
+                            Solutions
+                        </span>
+
+                        <span class="quick-arrow">
+                            ↗
+                        </span>
 
                     </a>
 
 
+
+                    <!-- CALL -->
+
                     <a
-                        class="contact-item"
+                        class="quick-button"
+                        href="tel:+66822822568"
+                    >
+
+                        <span class="quick-icon">
+                            📞
+                        </span>
+
+                        <span class="quick-name">
+                            Call Me
+                        </span>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- EMAIL -->
+
+                    <a
+                        class="quick-button"
+                        href="mailto:pongsatorn.cho@ricoh.co.th"
+                    >
+
+                        <span class="quick-icon">
+                            @
+                        </span>
+
+                        <span class="quick-name">
+                            Email
+                        </span>
+
+                        <span class="quick-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- LINKEDIN -->
+
+                    <a
+                        class="quick-button"
+                        href="https://www.linkedin.com/in/pongsatorn-chomkaew-7794022a7/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <span class="quick-icon">
+                            In
+                        </span>
+
+                        <span class="quick-name">
+                            LinkedIn
+                        </span>
+
+                        <span class="quick-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- RICOH -->
+
+                    <a
+                        class="quick-button"
                         href="https://www.ricoh.co.th/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
 
-                        <div class="contact-label">
-                            Company
-                        </div>
+                        <span class="quick-icon">
+                            R
+                        </span>
 
-                        <div class="contact-value">
-                            RICOH (THAILAND) LIMITED ↗
-                        </div>
+                        <span class="quick-name">
+                            RICOH
+                        </span>
+
+                        <span class="quick-arrow">
+                            ↗
+                        </span>
 
                     </a>
 
@@ -1249,52 +1153,78 @@
 
             </div>
 
+
+
+            <!-- =================================================
+                 COMPANY
+            ================================================== -->
+
+            <div class="company">
+
+
+                <div>
+
+                    <div class="company-name">
+
+                        <span>RICOH (THAILAND) LIMITED</span>
+
+                    </div>
+
+
+
+                    <div class="company-address">
+
+                        341 Onnuj Road, Prawet, Bangkok 10250<br>
+
+                        Office: +66 2 088 8888 ext. 1845
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="year">
+
+                    © 2026
+
+                </div>
+
+
+            </div>
+
+
         </section>
+
 
     </main>
 
 
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <div>
-            © 2026 Pongsatorn Chomkeaw
-        </div>
-
-        <div class="footer-red">
-            RICOH / THAILAND
-        </div>
-
-    </footer>
-
-
-
-    <!-- =========================================================
-         SAVE CONTACT
-    ========================================================== -->
-
     <script>
+
+
+        /* =========================================================
+           SAVE CONTACT
+        ========================================================= */
 
         function saveContact() {
 
-            const vcard = [
-                "BEGIN:VCARD",
-                "VERSION:3.0",
-                "FN:Pongsatorn Chomkeaw",
-                "N:Chomkeaw;Pongsatorn;;;",
-                "ORG:RICOH (THAILAND) LIMITED",
-                "TITLE:Business Consultant",
-                "ROLE:Digital Transformation Solution",
-                "TEL;TYPE=CELL:+66822822568",
-                "EMAIL;TYPE=WORK:pongsatorn.cho@ricoh.co.th",
-                "ADR;TYPE=WORK:;;341 Onnuj Road;Prawet;Bangkok;10250;Thailand",
-                "URL:https://www.ricoh.co.th/",
-                "END:VCARD"
-            ].join("\r\n");
+
+            const vcard = `
+BEGIN:VCARD
+VERSION:3.0
+N:Chomkeaw;Pongsatorn;;;
+FN:Pongsatorn Chomkeaw
+ORG:RICOH (THAILAND) LIMITED
+TITLE:Business Consultant / Digital Transformation Solution
+TEL;TYPE=CELL:+66822822568
+EMAIL:pongsatorn.cho@ricoh.co.th
+ADR;TYPE=WORK:;;341 Onnuj Road;Prawet;Bangkok;10250;Thailand
+URL:https://www.ricoh.co.th/
+END:VCARD
+            `.trim();
+
 
 
             const blob = new Blob(
@@ -1325,12 +1255,15 @@
 
             document.body.removeChild(link);
 
+
             URL.revokeObjectURL(url);
 
         }
+
 
     </script>
 
 
 </body>
+
 </html>
