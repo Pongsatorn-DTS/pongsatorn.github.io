@@ -2,1314 +2,651 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Pongsatorn Chomkeaw | Digital Business Card</title>
+    <title>Nutchaya Wongcharoenchai | Digital Business Card</title>
 
     <meta
         name="description"
-        content="Pongsatorn Chomkeaw — Business Consultant, Digital Transformation Solution at RICOH (THAILAND) LIMITED."
+        content="Nutchaya Wongcharoenchai — Senior Business Solutions Consultant, Digital Transformation Solution at RICOH (THAILAND) LIMITED."
     >
 
     <style>
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
+        /* RESET */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             min-height: 100vh;
-
-            font-family:
-                Inter,
-                "Segoe UI",
-                Helvetica,
-                Arial,
-                sans-serif;
-
+            font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
             background: #f5f5f3;
-
             color: #111;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             padding: 30px;
-
         }
 
-
-
-        /* =========================================================
-           MAIN CARD
-        ========================================================= */
-
+        /* MAIN CARD */
         .card {
-
             position: relative;
-
             width: 100%;
-
             max-width: 1100px;
-
             min-height: 650px;
-
             display: grid;
-
             grid-template-columns: 0.9fr 1.1fr;
-
             background: #fff;
-
             border: 1px solid #dededb;
-
             border-radius: 20px;
-
             overflow: hidden;
-
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.08);
-
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
         }
 
-
-
-        /* =========================================================
-           LEFT / PROFILE
-        ========================================================= */
-
+        /* PROFILE */
         .profile {
-
             position: relative;
-
             min-height: 650px;
-
             padding: 35px;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: space-between;
-
             overflow: hidden;
-
             background: #111;
-
             color: #fff;
-
             border-right: 1px solid #e5e5e2;
-
         }
 
-
-        /* =========================================================
-           FULL BLEED PHOTO
-        ========================================================= */
-
+        /* PHOTO */
         .photo-wrapper {
-
             position: absolute;
-
             inset: 0;
-
             z-index: 0;
-
             width: 100%;
-
             height: 100%;
-
             margin: 0;
-
         }
-
 
         .photo {
-
             display: block;
-
             width: 100%;
-
             height: 100%;
-
             object-fit: cover;
-
             object-position: center;
-
             border-radius: 0;
-
             border: none;
-
             box-shadow: none;
-
             filter: grayscale(10%);
-
-            transition:
-                transform 0.6s ease,
-                filter 0.6s ease;
-
+            transition: transform 0.6s ease, filter 0.6s ease;
         }
-
 
         .profile:hover .photo {
-
             transform: scale(1.03);
-
             filter: grayscale(0%);
-
         }
 
-
-        /* =========================================================
-           IMAGE OVERLAY
-        ========================================================= */
-
+        /* PHOTO OVERLAY */
         .profile::after {
-
             content: "";
-
             position: absolute;
-
             inset: 0;
-
             z-index: 1;
-
             pointer-events: none;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0.60) 0%,
-                    rgba(0, 0, 0, 0.10) 38%,
-                    rgba(0, 0, 0, 0.15) 55%,
-                    rgba(0, 0, 0, 0.78) 100%
-                );
-
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.60) 0%,
+                rgba(0, 0, 0, 0.10) 38%,
+                rgba(0, 0, 0, 0.15) 55%,
+                rgba(0, 0, 0, 0.78) 100%
+            );
         }
 
-
-
-        /* =========================================================
-           BRAND
-        ========================================================= */
-
+        /* BRAND */
         .brand {
-
             position: relative;
-
             z-index: 2;
-
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
             font-size: 13px;
-
             font-weight: 700;
-
             letter-spacing: 2px;
-
             text-transform: uppercase;
-
         }
-
 
         .brand-mark {
-
             width: 9px;
-
             height: 9px;
-
             background: #d6001c;
-
             border-radius: 50%;
-
         }
 
-
-
-        /* =========================================================
-           AVAILABILITY
-        ========================================================= */
-
+        /* AVAILABILITY */
         .availability {
-
             position: relative;
-
             z-index: 2;
-
             display: flex;
-
             align-items: center;
-
             gap: 9px;
-
             font-size: 12px;
-
             font-weight: 500;
-
-            color: rgba(255,255,255,0.85);
-
+            color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.3px;
-
         }
-
 
         .status-dot {
-
             width: 7px;
-
             height: 7px;
-
             background: #22a447;
-
             border-radius: 50%;
-
-            box-shadow:
-                0 0 0 4px rgba(34, 164, 71, 0.15);
-
+            box-shadow: 0 0 0 4px rgba(34, 164, 71, 0.15);
         }
 
-
-
-        /* =========================================================
-           RIGHT / INFORMATION
-        ========================================================= */
-
+        /* INFORMATION */
         .content {
-
             padding: 55px;
-
             display: flex;
-
             flex-direction: column;
-
         }
-
-
-
-        /* =========================================================
-           SMALL HEADING
-        ========================================================= */
 
         .eyebrow {
-
             color: #d6001c;
-
             font-size: 11px;
-
             font-weight: 700;
-
             letter-spacing: 2.5px;
-
             text-transform: uppercase;
-
             margin-bottom: 20px;
-
         }
 
-
-
-        /* =========================================================
-           NAME
-        ========================================================= */
-
+        /* NAME */
         .name {
-
             font-size: clamp(42px, 5vw, 68px);
-
             line-height: 0.98;
-
             font-weight: 750;
-
             letter-spacing: -3px;
-
             max-width: 600px;
-
         }
 
-
-
-        /* =========================================================
-           POSITION
-        ========================================================= */
-
+        /* POSITION */
         .position {
-
             margin-top: 25px;
-
             font-size: 18px;
-
             line-height: 1.6;
-
             color: #666;
-
             max-width: 480px;
-
         }
-
 
         .position strong {
-
             color: #222;
-
             font-weight: 600;
-
         }
 
-
-
-        /* =========================================================
-           DIVIDER
-        ========================================================= */
-
+        /* DIVIDER */
         .divider {
-
             width: 100%;
-
             height: 1px;
-
             background: #e5e5e2;
-
             margin: 35px 0;
-
         }
 
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
+        /* CONTACT */
         .section-label {
-
             font-size: 10px;
-
             font-weight: 700;
-
             letter-spacing: 2px;
-
             text-transform: uppercase;
-
             color: #999;
-
             margin-bottom: 14px;
-
         }
-
 
         .contact-list {
-
             display: flex;
-
             flex-direction: column;
-
             gap: 9px;
-
         }
-
 
         .contact-link {
-
             width: fit-content;
-
             color: #222;
-
             text-decoration: none;
-
             font-size: 15px;
-
-            transition:
-                color 0.2s ease,
-                transform 0.2s ease;
-
+            transition: color 0.2s ease, transform 0.2s ease;
         }
-
 
         .contact-link:hover {
-
             color: #d6001c;
-
             transform: translateX(4px);
-
         }
 
-
-
-        /* =========================================================
-           QUICK ACCESS
-        ========================================================= */
-
+        /* QUICK ACCESS */
         .quick-access {
-
             margin-top: 28px;
-
         }
-
 
         .quick-title {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             margin-bottom: 12px;
-
         }
-
 
         .quick-title span:first-child {
-
             font-size: 10px;
-
             font-weight: 700;
-
             letter-spacing: 2px;
-
             text-transform: uppercase;
-
             color: #999;
-
         }
-
 
         .quick-title span:last-child {
-
             font-size: 10px;
-
             color: #bbb;
-
             letter-spacing: 1px;
-
         }
-
 
         .quick-grid {
-
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 8px;
-
         }
 
-
         .quick-button {
-
             position: relative;
-
             min-height: 62px;
-
             padding: 12px;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: space-between;
-
             text-decoration: none;
-
             color: #111;
-
             background: #fafaf9;
-
             border: 1px solid #dededb;
-
             border-radius: 8px;
-
             cursor: pointer;
-
             font-family: inherit;
-
             text-align: left;
-
             transition:
                 background 0.2s ease,
                 color 0.2s ease,
                 border-color 0.2s ease,
                 transform 0.2s ease,
                 box-shadow 0.2s ease;
-
         }
-
 
         .quick-button:hover {
-
             background: #111;
-
             color: #fff;
-
             border-color: #111;
-
             transform: translateY(-2px);
-
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, 0.10);
-
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
         }
-
 
         .quick-button.solution:hover {
-
             background: #d6001c;
-
             border-color: #d6001c;
-
-            box-shadow:
-                0 8px 20px rgba(214, 0, 28, 0.18);
-
+            box-shadow: 0 8px 20px rgba(214, 0, 28, 0.18);
         }
-
 
         .quick-icon {
-
             font-size: 16px;
-
             line-height: 1;
-
         }
-
 
         .quick-name {
-
             font-size: 11px;
-
             font-weight: 700;
-
             letter-spacing: 0.2px;
-
         }
-
 
         .quick-arrow {
-
             position: absolute;
-
             right: 10px;
-
             top: 10px;
-
             font-size: 11px;
-
             opacity: 0.45;
-
         }
 
-
-
-        /* =========================================================
-           COMPANY
-        ========================================================= */
-
+        /* COMPANY */
         .company {
-
             margin-top: auto;
-
             padding-top: 28px;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
-
             gap: 30px;
-
         }
-
 
         .company-name {
-
             font-size: 13px;
-
             font-weight: 750;
-
             letter-spacing: 0.5px;
-
         }
-
 
         .company-name span {
-
             color: #d6001c;
-
         }
-
 
         .company-address {
-
             margin-top: 6px;
-
             color: #999;
-
             font-size: 11px;
-
             line-height: 1.6;
-
         }
-
 
         .year {
-
             color: #aaa;
-
             font-size: 10px;
-
             letter-spacing: 1px;
-
             white-space: nowrap;
-
         }
 
-
-
-        /* =========================================================
-           DECORATIVE NUMBER
-        ========================================================= */
-
+        /* DECORATIVE NUMBER */
         .number {
-
             position: absolute;
-
             right: 35px;
-
             top: 30px;
-
             font-size: 10px;
-
             letter-spacing: 2px;
-
             color: #bbb;
-
         }
 
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
+        /* MOBILE */
         @media (max-width: 800px) {
-
             body {
-
                 padding: 15px;
-
                 align-items: flex-start;
-
             }
-
 
             .card {
-
                 grid-template-columns: 1fr;
-
                 max-width: 600px;
-
                 min-height: auto;
-
             }
-
 
             .profile {
-
                 min-height: 520px;
-
                 height: 520px;
-
                 padding: 30px;
-
                 border-right: none;
-
                 border-bottom: 1px solid #e5e5e2;
-
             }
-
-
-            /*
-             IMPORTANT:
-             Do NOT add the old margin/width rules here.
-             The photo stays full-bleed.
-            */
 
             .photo-wrapper {
-
                 position: absolute;
-
                 inset: 0;
-
                 width: 100%;
-
                 height: 100%;
-
                 margin: 0;
-
             }
-
 
             .photo {
-
                 width: 100%;
-
                 height: 100%;
-
                 border-radius: 0;
-
             }
-
 
             .content {
-
                 padding: 35px 30px;
-
             }
-
 
             .name {
-
                 font-size: 46px;
-
                 letter-spacing: -2px;
-
             }
-
 
             .company {
-
                 margin-top: 45px;
-
             }
-
         }
 
-
-
-        /* =========================================================
-           SMALL MOBILE
-        ========================================================= */
-
+        /* SMALL MOBILE */
         @media (max-width: 480px) {
-
             body {
-
                 padding: 10px;
-
             }
-
 
             .card {
-
                 border-radius: 14px;
-
             }
-
 
             .profile {
-
                 padding: 25px;
-
                 min-height: 450px;
-
                 height: 450px;
-
             }
-
 
             .content {
-
                 padding: 30px 25px;
-
             }
-
 
             .photo {
-
                 width: 100%;
-
                 height: 100%;
-
             }
-
 
             .name {
-
                 font-size: 38px;
-
                 letter-spacing: -1.8px;
-
             }
-
 
             .position {
-
                 font-size: 16px;
-
             }
-
 
             .divider {
-
                 margin: 30px 0;
-
             }
-
 
             .quick-grid {
-
                 grid-template-columns: repeat(2, 1fr);
-
             }
-
 
             .quick-button {
-
                 min-height: 65px;
-
             }
-
 
             .company {
-
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 gap: 12px;
-
             }
-
         }
-
-
 
         @media (max-width: 350px) {
-
             .quick-grid {
-
                 grid-template-columns: 1fr;
-
             }
-
 
             .name {
-
                 font-size: 34px;
-
             }
-
         }
-
     </style>
-
 </head>
 
-
 <body>
-
-
     <main class="card">
 
-
-        <!-- =====================================================
-             PROFILE
-        ====================================================== -->
-
+        <!-- PROFILE -->
         <section class="profile">
-
-
-            <!-- FULL BACKGROUND PHOTO -->
-
             <div class="photo-wrapper">
-
                 <img
                     class="photo"
-                    src="dawsons.jpg"
-                    alt="Pongsatorn Chomkeaw"
+                    src="preme.jpg"
+                    alt="Nutchaya Wongcharoenchai"
                 >
-
             </div>
-
-
-
-            <!-- BRAND -->
 
             <div class="brand">
-
                 <span class="brand-mark"></span>
-
                 RICOH
-
             </div>
-
-
-
-            <!-- AVAILABILITY -->
 
             <div class="availability">
-
                 <span class="status-dot"></span>
-
                 Available for business
-
             </div>
-
-
         </section>
 
-
-
-        <!-- =====================================================
-             INFORMATION
-        ====================================================== -->
-
+        <!-- INFORMATION -->
         <section class="content">
+            <span class="number">DIGITAL ID / 2026</span>
 
-
-            <span class="number">
-
-                DIGITAL ID / 2026
-
-            </span>
-
-
-
-            <div class="eyebrow">
-
-                Digital Business Card
-
-            </div>
-
-
+            <div class="eyebrow">Digital Business Card</div>
 
             <h1 class="name">
-
-                Pongsatorn<br>
-
-                Chomkeaw
-
+                Nutchaya<br>
+                Wongcharoenchai
             </h1>
 
-
-
             <p class="position">
-
-                <strong>Business Consultant</strong><br>
-
+                <strong>Senior Business Solutions Consultant</strong><br>
                 Digital Transformation Solution
-
             </p>
-
-
 
             <div class="divider"></div>
 
-
-
-            <!-- =================================================
-                 CONTACT
-            ================================================== -->
-
-            <div class="section-label">
-
-                Contact
-
-            </div>
-
-
+            <!-- CONTACT -->
+            <div class="section-label">Contact</div>
 
             <div class="contact-list">
-
+                <a
+                    class="contact-link"
+                    href="mailto:Nutchaya.won@ricoh.co.th"
+                >
+                    Nutchaya.won@ricoh.co.th
+                </a>
 
                 <a
                     class="contact-link"
-                    href="mailto:pongsatorn.cho@ricoh.co.th"
+                    href="tel:+66894427676"
                 >
-
-                    pongsatorn.cho@ricoh.co.th
-
+                    +66 89 442 7676
                 </a>
-
-
-
-                <a
-                    class="contact-link"
-                    href="tel:+66822822568"
-                >
-
-                    +66 82 282 2568
-
-                </a>
-
-
             </div>
 
-
-
-            <!-- =================================================
-                 QUICK ACCESS
-            ================================================== -->
-
+            <!-- QUICK ACCESS -->
             <div class="quick-access">
-
-
                 <div class="quick-title">
-
                     <span>Quick Access</span>
-
                     <span>CONNECT / EXPLORE</span>
-
                 </div>
-
-
 
                 <div class="quick-grid">
 
-
                     <!-- SAVE CONTACT -->
-
                     <button
                         class="quick-button"
                         onclick="saveContact()"
                     >
-
-                        <span class="quick-icon">
-                            +
-                        </span>
-
-                        <span class="quick-name">
-                            Save Contact
-                        </span>
-
-                        <span class="quick-arrow">
-                            ↓
-                        </span>
-
+                        <span class="quick-icon">+</span>
+                        <span class="quick-name">Save Contact</span>
+                        <span class="quick-arrow">↓</span>
                     </button>
 
-
-
                     <!-- SOLUTIONS -->
-
                     <a
                         class="quick-button solution"
                         href="RICOH DTS Solution_EN.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
-                        <span class="quick-icon">
-                            ◇
-                        </span>
-
-                        <span class="quick-name">
-                            Solutions
-                        </span>
-
-                        <span class="quick-arrow">
-                            ↗
-                        </span>
-
+                        <span class="quick-icon">◇</span>
+                        <span class="quick-name">Solutions</span>
+                        <span class="quick-arrow">↗</span>
                     </a>
-
-
 
                     <!-- CALL -->
-
                     <a
                         class="quick-button"
-                        href="tel:+66822822568"
+                        href="tel:+66894427676"
                     >
-
-                        <span class="quick-icon">
-                            📞
-                        </span>
-
-                        <span class="quick-name">
-                            Call Me
-                        </span>
-
-                        <span class="quick-arrow">
-                            →
-                        </span>
-
+                        <span class="quick-icon">📞</span>
+                        <span class="quick-name">Call Me</span>
+                        <span class="quick-arrow">→</span>
                     </a>
-
-
 
                     <!-- EMAIL -->
-
                     <a
                         class="quick-button"
-                        href="mailto:pongsatorn.cho@ricoh.co.th"
+                        href="mailto:Nutchaya.won@ricoh.co.th"
                     >
-
-                        <span class="quick-icon">
-                            @
-                        </span>
-
-                        <span class="quick-name">
-                            Email
-                        </span>
-
-                        <span class="quick-arrow">
-                            ↗
-                        </span>
-
+                        <span class="quick-icon">@</span>
+                        <span class="quick-name">Email</span>
+                        <span class="quick-arrow">↗</span>
                     </a>
 
-
-
                     <!-- LINKEDIN -->
-
                     <a
                         class="quick-button"
-                        href="https://www.linkedin.com/in/pongsatorn-chomkaew-7794022a7/"
+                        href="https://www.linkedin.com/in/nutchaya-wongcharoenchai-7760b3201?utm"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
-                        <span class="quick-icon">
-                            In
-                        </span>
-
-                        <span class="quick-name">
-                            LinkedIn
-                        </span>
-
-                        <span class="quick-arrow">
-                            ↗
-                        </span>
-
+                        <span class="quick-icon">In</span>
+                        <span class="quick-name">LinkedIn</span>
+                        <span class="quick-arrow">↗</span>
                     </a>
 
-
-
                     <!-- RICOH -->
-
                     <a
                         class="quick-button"
                         href="https://www.ricoh.co.th/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
-                        <span class="quick-icon">
-                            R
-                        </span>
-
-                        <span class="quick-name">
-                            RICOH
-                        </span>
-
-                        <span class="quick-arrow">
-                            ↗
-                        </span>
-
+                        <span class="quick-icon">R</span>
+                        <span class="quick-name">RICOH</span>
+                        <span class="quick-arrow">↗</span>
                     </a>
 
-
                 </div>
-
             </div>
 
-
-
-            <!-- =================================================
-                 COMPANY
-            ================================================== -->
-
+            <!-- COMPANY -->
             <div class="company">
-
-
                 <div>
-
                     <div class="company-name">
-
                         <span>RICOH (THAILAND) LIMITED</span>
-
                     </div>
-
-
 
                     <div class="company-address">
-
                         341 Onnuj Road, Prawet, Bangkok 10250<br>
-
-                        Office: +66 2 088 8888 ext. 1845
-
+                        Office: +66 2 088 1852 ext. 1852
                     </div>
-
                 </div>
-
-
 
                 <div class="year">
-
-                    © 2026 Pongsatorn Chomkaew
-
+                    © 2026 Nutchaya Wongcharoenchai
                 </div>
-
-
             </div>
-
-
         </section>
-
-
     </main>
 
-
-
     <script>
-
-
-        /* =========================================================
-           SAVE CONTACT
-        ========================================================= */
-
+        /* SAVE CONTACT */
         function saveContact() {
-
-
             const vcard = `
 BEGIN:VCARD
 VERSION:3.0
-N:Chomkeaw;Pongsatorn;;;
-FN:Pongsatorn Chomkeaw
+N:Wongcharoenchai;Nutchaya;;;
+FN:Nutchaya Wongcharoenchai
 ORG:RICOH (THAILAND) LIMITED
-TITLE:Business Consultant / Digital Transformation Solution
-TEL;TYPE=CELL:+66822822568
-EMAIL:pongsatorn.cho@ricoh.co.th
+TITLE:Senior Business Solutions Consultant / Digital Transformation Solution
+TEL;TYPE=CELL:+66894427676
+TEL;TYPE=WORK:+6620881852
+EMAIL:Nutchaya.won@ricoh.co.th
 ADR;TYPE=WORK:;;341 Onnuj Road;Prawet;Bangkok;10250;Thailand
-URL:https://www.ricoh.co.th/
+URL:https://www.linkedin.com/in/nutchaya-wongcharoenchai-7760b3201?utm
 END:VCARD
             `.trim();
-
-
 
             const blob = new Blob(
                 [vcard],
@@ -1318,39 +655,19 @@ END:VCARD
                 }
             );
 
-
-            const url =
-                URL.createObjectURL(blob);
-
-
-            const link =
-                document.createElement("a");
-
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
 
             link.href = url;
-
-
-            link.download =
-                "Pongsatorn-Chomkaew.vcf";
-
+            link.download = "Nutchaya-Wongcharoenchai.vcf";
 
             document.body.appendChild(link);
-
-
             link.click();
-
-
             document.body.removeChild(link);
 
-
             URL.revokeObjectURL(url);
-
         }
-
-
     </script>
-
-
 </body>
 
 </html>
