@@ -1,13 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Nakareeya Prapaitrakul | Digital Business Card</title>
-    <meta name="description" content="Nakareeya Prapaitrakul — Business Solution Analyst | Digital Transformation Solution at RICOH (THAILAND) LIMITED.">
+
+    <meta
+        name="description"
+        content="Nakareeya Prapaitrakul — Business Solution Analyst, Digital Transformation Solution at RICOH (THAILAND) LIMITED."
+    >
 
     <style>
+        /* RESET */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -29,6 +35,7 @@
             padding: 30px;
         }
 
+        /* MAIN CARD */
         .card {
             position: relative;
             width: 100%;
@@ -43,6 +50,7 @@
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
         }
 
+        /* PROFILE */
         .profile {
             position: relative;
             min-height: 650px;
@@ -56,6 +64,7 @@
             border-right: 1px solid #e5e5e2;
         }
 
+        /* PHOTO */
         .photo-wrapper {
             position: absolute;
             inset: 0;
@@ -83,6 +92,7 @@
             filter: grayscale(0%);
         }
 
+        /* PHOTO OVERLAY */
         .profile::after {
             content: "";
             position: absolute;
@@ -98,6 +108,7 @@
             );
         }
 
+        /* BRAND */
         .brand {
             position: relative;
             z-index: 2;
@@ -117,6 +128,7 @@
             border-radius: 50%;
         }
 
+        /* AVAILABILITY */
         .availability {
             position: relative;
             z-index: 2;
@@ -125,7 +137,7 @@
             gap: 9px;
             font-size: 12px;
             font-weight: 500;
-            color: rgba(255,255,255,0.85);
+            color: rgba(255, 255, 255, 0.85);
             letter-spacing: 0.3px;
         }
 
@@ -137,6 +149,7 @@
             box-shadow: 0 0 0 4px rgba(34, 164, 71, 0.15);
         }
 
+        /* INFORMATION */
         .content {
             padding: 55px;
             display: flex;
@@ -152,6 +165,7 @@
             margin-bottom: 20px;
         }
 
+        /* NAME */
         .name {
             font-size: clamp(42px, 5vw, 68px);
             line-height: 0.98;
@@ -160,6 +174,7 @@
             max-width: 600px;
         }
 
+        /* POSITION */
         .position {
             margin-top: 25px;
             font-size: 18px;
@@ -173,6 +188,7 @@
             font-weight: 600;
         }
 
+        /* DIVIDER */
         .divider {
             width: 100%;
             height: 1px;
@@ -180,6 +196,7 @@
             margin: 35px 0;
         }
 
+        /* CONTACT */
         .section-label {
             font-size: 10px;
             font-weight: 700;
@@ -201,7 +218,6 @@
             text-decoration: none;
             font-size: 15px;
             transition: color 0.2s ease, transform 0.2s ease;
-            overflow-wrap: anywhere;
         }
 
         .contact-link:hover {
@@ -209,6 +225,7 @@
             transform: translateX(4px);
         }
 
+        /* QUICK ACCESS */
         .quick-access {
             margin-top: 28px;
         }
@@ -217,7 +234,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
             margin-bottom: 12px;
         }
 
@@ -256,8 +272,11 @@
             cursor: pointer;
             font-family: inherit;
             text-align: left;
-            transition: background 0.2s ease, color 0.2s ease,
-                border-color 0.2s ease, transform 0.2s ease,
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease,
                 box-shadow 0.2s ease;
         }
 
@@ -294,6 +313,7 @@
             opacity: 0.45;
         }
 
+        /* COMPANY */
         .company {
             margin-top: auto;
             padding-top: 28px;
@@ -327,6 +347,7 @@
             white-space: nowrap;
         }
 
+        /* DECORATIVE NUMBER */
         .number {
             position: absolute;
             right: 35px;
@@ -336,6 +357,7 @@
             color: #bbb;
         }
 
+        /* MOBILE */
         @media (max-width: 800px) {
             body {
                 padding: 15px;
@@ -356,6 +378,20 @@
                 border-bottom: 1px solid #e5e5e2;
             }
 
+            .photo-wrapper {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+
+            .photo {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+
             .content {
                 padding: 35px 30px;
             }
@@ -370,6 +406,7 @@
             }
         }
 
+        /* SMALL MOBILE */
         @media (max-width: 480px) {
             body {
                 padding: 10px;
@@ -387,6 +424,11 @@
 
             .content {
                 padding: 30px 25px;
+            }
+
+            .photo {
+                width: 100%;
+                height: 100%;
             }
 
             .name {
@@ -431,6 +473,8 @@
 
 <body>
     <main class="card">
+
+        <!-- PROFILE -->
         <section class="profile">
             <div class="photo-wrapper">
                 <img
@@ -451,6 +495,7 @@
             </div>
         </section>
 
+        <!-- INFORMATION -->
         <section class="content">
             <span class="number">DIGITAL ID / 2026</span>
 
@@ -462,14 +507,13 @@
             </h1>
 
             <p class="position">
-                <strong>
-                    Business Solution Analyst |
-                    Digital Transformation Solution
-                </strong>
+                <strong>Business Solution Analyst</strong><br>
+                Digital Transformation Solution
             </p>
 
             <div class="divider"></div>
 
+            <!-- CONTACT -->
             <div class="section-label">Contact</div>
 
             <div class="contact-list">
@@ -484,19 +528,11 @@
                     class="contact-link"
                     href="tel:+66875953211"
                 >
-                    +66875953211
-                </a>
-
-                <a
-                    class="contact-link"
-                    href="https://www.linkedin.com/in/nakareeya-p-319289215/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn: Nakareeya Prapaitrakul ↗
+                    +66 87 595 3211
                 </a>
             </div>
 
+            <!-- QUICK ACCESS -->
             <div class="quick-access">
                 <div class="quick-title">
                     <span>Quick Access</span>
@@ -504,9 +540,10 @@
                 </div>
 
                 <div class="quick-grid">
+
+                    <!-- SAVE CONTACT -->
                     <button
                         class="quick-button"
-                        type="button"
                         onclick="saveContact()"
                     >
                         <span class="quick-icon">+</span>
@@ -514,6 +551,7 @@
                         <span class="quick-arrow">↓</span>
                     </button>
 
+                    <!-- SOLUTIONS -->
                     <a
                         class="quick-button solution"
                         href="RICOH DTS Solution_EN.pdf"
@@ -525,15 +563,17 @@
                         <span class="quick-arrow">↗</span>
                     </a>
 
+                    <!-- CALL -->
                     <a
                         class="quick-button"
                         href="tel:+66875953211"
                     >
-                        <span class="quick-icon">☎</span>
+                        <span class="quick-icon">📞</span>
                         <span class="quick-name">Call Me</span>
                         <span class="quick-arrow">→</span>
                     </a>
 
+                    <!-- EMAIL -->
                     <a
                         class="quick-button"
                         href="mailto:Nakareeya.pra@ricoh.co.th"
@@ -543,6 +583,7 @@
                         <span class="quick-arrow">↗</span>
                     </a>
 
+                    <!-- LINKEDIN -->
                     <a
                         class="quick-button"
                         href="https://www.linkedin.com/in/nakareeya-p-319289215/"
@@ -554,6 +595,7 @@
                         <span class="quick-arrow">↗</span>
                     </a>
 
+                    <!-- RICOH -->
                     <a
                         class="quick-button"
                         href="https://www.ricoh.co.th/"
@@ -564,9 +606,11 @@
                         <span class="quick-name">RICOH</span>
                         <span class="quick-arrow">↗</span>
                     </a>
+
                 </div>
             </div>
 
+            <!-- COMPANY -->
             <div class="company">
                 <div>
                     <div class="company-name">
@@ -574,6 +618,7 @@
                     </div>
 
                     <div class="company-address">
+                        341 Onnuj Road, Prawet, Bangkok 10250<br>
                         Office: +66 2 088 8888 ext. 4658
                     </div>
                 </div>
@@ -586,24 +631,27 @@
     </main>
 
     <script>
+        /* SAVE CONTACT */
         function saveContact() {
-            const vcard = [
-                "BEGIN:VCARD",
-                "VERSION:3.0",
-                "N:Prapaitrakul;Nakareeya;;;",
-                "FN:Nakareeya Prapaitrakul",
-                "ORG:RICOH (THAILAND) LIMITED",
-                "TITLE:Business Solution Analyst | Digital Transformation Solution",
-                "TEL;TYPE=CELL:+66875953211",
-                "TEL;TYPE=WORK,VOICE:+6620888888;ext=4658",
-                "EMAIL:Nakareeya.pra@ricoh.co.th",
-                "URL:https://www.linkedin.com/in/nakareeya-p-319289215/",
-                "END:VCARD"
-            ].join("\r\n");
+            const vcard = `
+BEGIN:VCARD
+VERSION:3.0
+N:Prapaitrakul;Nakareeya;;;
+FN:Nakareeya Prapaitrakul
+ORG:RICOH (THAILAND) LIMITED
+TITLE:Business Solution Analyst / Digital Transformation Solution
+TEL;TYPE=CELL:+66875953211
+EMAIL:Nakareeya.pra@ricoh.co.th
+ADR;TYPE=WORK:;;341 Onnuj Road;Prawet;Bangkok;10250;Thailand
+URL:https://www.ricoh.co.th/
+END:VCARD
+            `.trim();
 
             const blob = new Blob(
                 [vcard],
-                { type: "text/vcard;charset=utf-8" }
+                {
+                    type: "text/vcard;charset=utf-8"
+                }
             );
 
             const url = URL.createObjectURL(blob);
@@ -620,4 +668,5 @@
         }
     </script>
 </body>
+
 </html>
